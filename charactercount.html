@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>character count</title>
+</head>
+<style>
+    .container{
+        margin: 0;
+        justify-content: center;
+        text-align: center;
+        background-color: lightcoral;
+        
+        
+    }
+    #txt{
+        height: 100px;
+        width: 400px;
+        justify-content: baseline;
+       border: 2px solid black;
+       
+    }
+    #char{
+        justify-content: center;
+        text-align: center;
+        margin-left: 50px;
+        margin-top: 400px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Text calculator</h1>
+        <input type="text" id="txt" placeholder="Enter your text here"  >
+ 
+    <br>
+    <br>
+    <span id="char"> 0 </span>     characters
+</div>
+</body>
+</html>
+<script>
+   let area=document.getElementById("txt");
+   let char=document.getElementById("char")
+   area.addEventListener("input",function(){
+    let content=this.value;
+    char.textContent=content.length;
+    console.log(content);
+   });
+</script>
+    
+
