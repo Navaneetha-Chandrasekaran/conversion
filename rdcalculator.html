@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD calculator</title>
+    <style>
+
+       .container{
+        margin: 0;
+        background-color: grey;
+        text-align: center;
+        justify-content: center;
+        height: 400px;
+        width: 400px;
+        margin-left: 400px;
+        margin-top: 150px;
+       }
+       #btn{
+        background-color:lightblue;
+       }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>RD calculator</h2>
+        <div>
+            <h4>Principal Amount<span>&#8377</span></h4>
+            <input type="text" id="p">
+        </div>
+        <div>
+            <h4>Interst rate %</h4>
+            <input type="text" id="r">
+        </div>
+        <div>
+            <h4>time</h4>
+
+            <input type="text" id="t">
+        </div>
+        <br>
+        <div>
+            <button  id ="btn" onclick="convert()">calculate</button>
+        </div>
+        <br>
+        <div id="result" ></div>
+    </div>
+<script>
+    function convert(){
+        var pr=parseInt(document.getElementById("p").value);
+        var ra=parseInt(document.getElementById("r").value);
+        var ti=parseInt(document.getElementById("t").value);
+        var convert = pr*ra/(100*ti);
+       document.getElementById("result").innerHTML ="Total Amount After"   +  ti  +  "months : ₹ " +  convert. toFixed(2);
+    }
+</script>
+ 
+
+
+
