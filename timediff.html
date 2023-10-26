@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container{
+        justify-content: center;
+    text-align: center;
+    font-weight: 500;
+}
+    
+    input[type="time"] {
+  width: 100%;
+  padding: 5px;
+  background-color: hsl(0, 5%, 85%);
+}
+.st{
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+}
+.et{
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+}
+#calculate-button{
+    background-color:black;
+    color: white;
+   
+}
+  </style>
+</head>
+<body>
+
+  
+  <div class="container">
+    <h2>Time Calculator</h2>
+  <label for="datetime1" > <b>Start Time</b></label>
+  <br>
+  <br>
+  <input type="time" id="start-time">
+
+  <br>
+
+  <label for="datetime2"  class="et"><b>End time</b></label>
+  <br>
+  <input type="time" id="end-time">
+
+  <br><br>
+
+  <button onclick="DOMContentLoadede()" id="calculate-button">Calculate Difference</button>
+
+  <br><br>
+  
+  <div id="result">
+    <p>Time Difference: <span id="time-difference"></span></p>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const calculateButton = document.getElementById('calculate-button');
+  const startTimeInput = document.getElementById('start-time');
+  const endTimeInput = document.getElementById('end-time');
+  const timeDifferenceDisplay = document.getElementById('time-difference');
+
+  calculateButton.addEventListener('click', calculateTimeDifference);
+
+  function calculateTimeDifference() {
+      const startTime = new Date(`1970-01-01T${startTimeInput.value}`);
+      const endTime = new Date(`1970-01-01T${endTimeInput.value}`);
+
+      const timeDiff = endTime - startTime;
+      if (isNaN(timeDiff)) {
+          timeDifferenceDisplay.textContent = 'Invalid time format';
+      } else {
+          const hours = Math.floor(timeDiff / 3600000);
+          const minutes = Math.floor((timeDiff % 3600000) / 60000);
+          timeDifferenceDisplay.textContent = `${hours} hours and ${minutes} minutes`;
+      }
+  }
+});
+  </script>
+
+</body>
+</html>
